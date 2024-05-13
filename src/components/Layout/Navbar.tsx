@@ -12,6 +12,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
+import { MobileMenu } from "./MobileMenu";
 
 // Utils
 import { cn } from "@/lib/utils";
@@ -21,9 +22,11 @@ import { navigation } from "@/config/navigation";
 
 export function Navbar() {
   return (
-    <header className="border-b-[.0625rem] border-white/10 flex items-center gap-5 py-3 px-8">
-      <Link href="/">Sneakerf</Link>
-      <NavigationMenu>
+    <header className="border-b-[.0625rem] border-white/10 flex items-center  gap-5 py-3 px-8">
+      <Link href="/" className="hidden md:block">
+        Sneakerf
+      </Link>
+      <NavigationMenu className="hidden md:block">
         <NavigationMenuList>
           <NavigationMenuItem>
             <NavigationMenuTrigger>Lobby</NavigationMenuTrigger>
@@ -72,6 +75,8 @@ export function Navbar() {
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
+      {/* Mobile Menu */}
+      <MobileMenu />
     </header>
   );
 }
