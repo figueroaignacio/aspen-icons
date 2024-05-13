@@ -1,5 +1,6 @@
 export const navigation: { title: string; href: string }[] = [
   { title: "Productos", href: "/products" },
+  { title: "Blog", href: "/blog" },
 ];
 
 export const categories: {
