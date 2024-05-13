@@ -18,7 +18,7 @@ import { MobileMenu } from "./MobileMenu";
 import { cn } from "@/lib/utils";
 
 // Config
-import { navigation } from "@/config/navigation";
+import { categories, navigation } from "@/config/navigation";
 
 export function Navbar() {
   return (
@@ -26,48 +26,24 @@ export function Navbar() {
       <Link href="/" className="hidden md:block">
         Sneakerf
       </Link>
+      {navigation.map((item, index) => (
+        <Link key={index} href={item.href}>
+          {item.title}
+        </Link>
+      ))}
       <NavigationMenu className="hidden md:block">
         <NavigationMenuList>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>Lobby</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.90fr_1fr]">
-                <li className="row-span-3">
-                  <NavigationMenuLink asChild>
-                    <a
-                      className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                      href="/"
-                    >
-                      <div className="mb-2 mt-4 text-lg font-medium">
-                        Sneakerf
-                      </div>
-                      <p className="text-sm leading-tight text-muted-foreground">
-                        Dale estilo a tus pasos con Sneakerf. Encontrá tus
-                        zapatillas ideales acá.
-                      </p>
-                    </a>
-                  </NavigationMenuLink>
-                </li>
-                <ListItem href="/products" title="Productos">
-                  Mirá todos los productos que Sneakerf te ofrece!
-                </ListItem>
-                <ListItem href="/blog" title="Blog">
-                  Esta sección esta siendo desarrollada.
-                </ListItem>
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Sneakers</NavigationMenuTrigger>
+            <NavigationMenuTrigger>Categorías</NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                {navigation.map((component) => (
+                {categories.map((category) => (
                   <ListItem
-                    key={component.title}
-                    title={component.title}
-                    href={component.href}
+                    key={category.title}
+                    title={category.title}
+                    href={category.href}
                   >
-                    {component.description}
+                    {category.description}
                   </ListItem>
                 ))}
               </ul>
@@ -75,7 +51,6 @@ export function Navbar() {
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
-      {/* Mobile Menu */}
       <MobileMenu />
     </header>
   );

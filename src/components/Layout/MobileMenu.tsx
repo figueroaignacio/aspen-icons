@@ -15,7 +15,7 @@ import {
 } from "../ui/sheet";
 
 // Config
-import { navigation } from "@/config/navigation";
+import { categories } from "@/config/navigation";
 
 // Icons
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
@@ -42,12 +42,12 @@ export function MobileMenu() {
               </AccordionItem>
               <AccordionItem value="item-2">
                 <AccordionTrigger>Sneakers</AccordionTrigger>
-                {navigation.map((item, index: number) => (
+                {categories.map((category, index: number) => (
                   <AccordionContent
                     key={index}
                     className="flex flex-col text-start gap-3"
                   >
-                    <Link href={item.href}>{item.title}</Link>
+                    <Link href={category.href}>{category.title}</Link>
                   </AccordionContent>
                 ))}
               </AccordionItem>
