@@ -21,7 +21,9 @@ export default function MarketingLayout({
     <html lang="en">
       <body className={inter.className}>
         <Navbar />
-        {children}
+        <main className="min-h-screen py-6 m-auto container max-w-8xl">
+          {children}
+        </main>
       </body>
     </html>
   );
