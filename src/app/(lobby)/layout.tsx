@@ -1,11 +1,15 @@
 // Components
-import { Navbar } from "@/components/Layout/Navbar";
+import { Navbar } from "../../components/Layout/Navbar";
 
-import type { Metadata } from "next";
+// Font
 import { Inter } from "next/font/google";
+const inter = Inter({ subsets: ["latin"] });
+
+// Styles
 import "../globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+// Metadata
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,9 +25,7 @@ export default function MarketingLayout({
     <html lang="en">
       <body className={inter.className}>
         <Navbar />
-        <main className="min-h-screen py-6 m-auto container max-w-8xl">
-          {children}
-        </main>
+        <main className="min-h-screen py-6 mx-auto max-w-7xl">{children}</main>
       </body>
     </html>
   );
